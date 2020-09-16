@@ -1,9 +1,9 @@
 import appium.Hooks;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class gradleJunit extends Hooks {
+public class Tests extends Hooks {
 
     @Test
     public void firstTest() {
