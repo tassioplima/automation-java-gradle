@@ -7,7 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseScreen {
+
+public abstract class BaseScreen extends MobileElement{
 
     protected final AppiumDriver driver;
 
@@ -16,6 +17,7 @@ public abstract class BaseScreen {
 
         PageFactory.initElements(new AppiumFieldDecorator(driver, 15, TimeUnit.SECONDS), this);
     }
+
 
 
 }

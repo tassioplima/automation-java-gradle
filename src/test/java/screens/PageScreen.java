@@ -3,9 +3,9 @@ package screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSFindBy;
 
 public class PageScreen extends BaseScreen {
+
     public PageScreen(AppiumDriver driver){
         super(driver);
     }

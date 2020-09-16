@@ -10,6 +10,7 @@ public class Hooks extends AppiumController{
 
     @Before
     public void setUp() throws Exception {
+        startAppium();
 
         pageScreen = new PageScreen(driver);
     }
@@ -18,4 +19,5 @@ public class Hooks extends AppiumController{
     public void tearDown() throws Exception {
         stopAppium();
     }
+
 }
