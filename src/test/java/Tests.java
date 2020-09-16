@@ -12,5 +12,9 @@ public class Tests extends Hooks {
     public void firstTest() {
         assertTrue(pageScreen.getValue().isDisplayed());
     }
+    @Test
+    public void secondTest() {
+        assertTrue(pageScreen.getValue().isDisplayed());
+    }
 
 }
