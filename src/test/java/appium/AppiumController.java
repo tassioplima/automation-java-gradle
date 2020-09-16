@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class AppiumController {
 
     public static String userName = "tassiolima2";
-    public static String accessKey = "";
+    public static String accessKey = "npy1ZqSekc4xLzkyskE3";
 
     public static String server = "https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
 
