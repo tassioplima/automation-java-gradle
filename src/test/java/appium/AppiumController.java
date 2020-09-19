@@ -21,9 +21,9 @@ public class AppiumController {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("device", "Google Pixel 3");
             caps.setCapability("os_version", "9.0");
-            caps.setCapability("project", "My First Project");
-            caps.setCapability("build", "My First Build");
-            caps.setCapability("name", "First test");
+            caps.setCapability("project", "Testing Project");
+            caps.setCapability("build", "Automation");
+            caps.setCapability("name", "Entire Test");
             caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
