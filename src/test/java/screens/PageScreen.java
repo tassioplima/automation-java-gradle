@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageScreen {
 
-    private AppiumDriver<MobileElement> driver;
+    private MobileDriver<MobileElement> driver;
 
     public PageScreen(AppiumDriver driver){
         this.driver = driver;
@@ -20,6 +20,6 @@ public class PageScreen {
     private MobileElement value;
 
     public MobileElement getValue(){
-        return value;
+        return this.value;
     }
 }

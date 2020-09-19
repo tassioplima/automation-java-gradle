@@ -9,19 +9,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AppiumController {
 
-//    public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-//    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
-    public static final String AUTOMATE_USERNAME =  "http://tassiolima2.browserstack.com";
-    public static final String AUTOMATE_ACCESS_KEY = "npy1ZqSekc4xLzkyskE3";
-
+    public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
     public static final String server = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static AppiumDriver driver;
 
-    public static void startAppium() throws Exception {
-
-        if (driver == null) {
+    public void startAppium() throws Exception {
 
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("device", "Google Pixel 3");
@@ -32,8 +27,6 @@ public class AppiumController {
             caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
-
-        }
     }
 
     public void stopAppium() throws Exception {
