@@ -22,7 +22,7 @@ dependencies {
     )
     compile "commons-io:commons-io:1.3.2"
     compile "org.seleniumhq.selenium:selenium-java:3.6.0"
-    compile "io.appium:java-client:5.0.3"
+    compile "io.appium:java-client:7.0.0"
     compile "com.browserstack:browserstack-local-java:1.0.3"
     compile "com.googlecode.json-simple:json-simple:1.1.1"
 }

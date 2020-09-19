@@ -14,22 +14,26 @@ public class AppiumController {
     public static final String AUTOMATE_USERNAME =  "http://tassiolima2.browserstack.com";
     public static final String AUTOMATE_ACCESS_KEY = "npy1ZqSekc4xLzkyskE3";
 
-    
+
     public static final String server = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static AppiumDriver driver;
 
-    public void startAppium() throws Exception {
+    public static void startAppium() throws Exception {
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("device", "Google Pixel 3");
-        caps.setCapability("os_version", "9.0");
-        caps.setCapability("project", "My First Project");
-        caps.setCapability("build", "My First Build");
-        caps.setCapability("name", "First test");
-        caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
+        if (driver == null) {
 
-        driver = new AppiumDriver<MobileElement>(new URL(server), caps);
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("device", "Google Pixel 3");
+            caps.setCapability("os_version", "9.0");
+            caps.setCapability("project", "My First Project");
+            caps.setCapability("build", "My First Build");
+            caps.setCapability("name", "First test");
+            caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
+
+            driver = new AppiumDriver<MobileElement>(new URL(server), caps);
+
+        }
     }
 
     public void stopAppium() throws Exception {
