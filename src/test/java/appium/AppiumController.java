@@ -9,10 +9,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AppiumController {
 
+    public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static String userName = "tassiolima2";
     public static String accessKey = "npy1ZqSekc4xLzkyskE3";
 
-    public static String server = "https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+    public static String server = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static AppiumDriver driver;
 
