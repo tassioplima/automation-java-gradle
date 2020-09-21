@@ -35,12 +35,12 @@ public class AppiumController {
         } else if (mobile.contains("iOS")){
 
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("device", "Google Pixel 3");
-            caps.setCapability("os_version", "9.0");
+            caps.setCapability("device", "iPhone 11 Pro");
+            caps.setCapability("os_version", "13");
             caps.setCapability("project", "iOS Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "iOS");
-            caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
+            caps.setCapability("app", "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d");
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
 
