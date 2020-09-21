@@ -40,6 +40,4 @@ test {
             MOBILE: System.getProperty('MOBILE', 'ANDROID'),
             MOBILE: System.getProperty('MOBILE', 'iOS')
     ]
-
-    systemProperties( project.properties.subMap(["execPlatform"]))
 }
