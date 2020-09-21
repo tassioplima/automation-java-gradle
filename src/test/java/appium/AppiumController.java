@@ -16,7 +16,23 @@ public class AppiumController {
 
     public static AppiumDriver driver;
 
+    String execPlatform = System.getProperty("execPlatform");
+
+    String mobile = System.getProperty("MOBILE");
+
     public void startAppium() throws Exception {
+
+        if (mobile.contains("ANDROID")){
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("device", "Google Pixel 3");
+            caps.setCapability("os_version", "9.0");
+            caps.setCapability("project", "Testing Project");
+            caps.setCapability("build", "Automation");
+            caps.setCapability("name", "Entire Test");
+            caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
+
+            driver = new AppiumDriver<MobileElement>(new URL(server), caps);
+        } else if (mobile.contains("iOS")){
 
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("device", "Google Pixel 3");
@@ -27,6 +43,9 @@ public class AppiumController {
             caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
+
+        }
+
     }
 
     public void stopAppium() throws Exception {
