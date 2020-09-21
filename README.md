@@ -18,5 +18,19 @@ Running:
 ./gradlew test --tests "Tests"
 ```
 
+You can run with different devices like iOS and Android using properties on the cli execution:
+
+Android: 
+
+```
+./gradlew test --tests "Tests" -DMOBILE=ANDROID
+```
+
+iOS: 
+
+```
+./gradlew test --tests "Tests" -DMOBILE=iOS
+```
+
 
 
