@@ -38,6 +38,8 @@ test {
 
     systemProperties = [
             MOBILE: System.getProperty('MOBILE', 'ANDROID'),
-            MOBILE: System.getProperty('MOBILE', 'iOS')
+            MOBILE: System.getProperty('MOBILE', 'iOS'),
+            EXEC: System.getProperty('EXEC', "LOCAL"),
+            EXEC: System.getProperty('EXEC', "REMOTE")
     ]
 }
