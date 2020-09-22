@@ -5,7 +5,9 @@ public class JSON {
     private String user_name;
     private String access_key;
     private String platform;
-    private String [] app;
+    private String [] apps;
+    private String [] device;
+    private String []os_version;
 
 
     public String getUserName(){
@@ -21,6 +23,14 @@ public class JSON {
     }
 
     public String[] getApps() {
-        return app;
+        return apps;
+    }
+
+    public String [] getDevices(){
+        return device;
+    }
+
+    public String [] getOSVersions(){
+        return os_version;
     }
 }

@@ -1,5 +1,7 @@
 {
   "username": "",
   "access_name": "",
-  "app" : ["bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc" , "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d"]
+  "device": ["Google Pixel 3", "iPhone 11 Pro"],
+  "os_version": ["9.0", "13"],
+  "apps" : ["bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc" , "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d"]
 }
