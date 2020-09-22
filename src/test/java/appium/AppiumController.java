@@ -10,8 +10,10 @@ import utils.Utils;
 
 public class AppiumController {
 
-    public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+//    public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+//    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+    public static final String AUTOMATE_USERNAME = "http://tassiolima2.browserstack.com";
+    public static final String AUTOMATE_ACCESS_KEY = "npy1ZqSekc4xLzkyskE3";
 
     public static final String server = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
