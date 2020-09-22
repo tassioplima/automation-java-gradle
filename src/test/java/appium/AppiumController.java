@@ -31,10 +31,8 @@ public class AppiumController {
 
             if (exec.contains("REMOTE")){
                 driver = new AppiumDriver<MobileElement>(new URL(server), AndroidCapabilities.getAndroidCapabilities());
-
             } else {
                 driver = new AppiumDriver<MobileElement>(new URL(local), AndroidCapabilities.getAndroidCapabilities());
-
             }
 
         } else if (mobile.contains("iOS")){
