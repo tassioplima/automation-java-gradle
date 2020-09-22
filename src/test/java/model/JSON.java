@@ -5,7 +5,8 @@ public class JSON {
     private String user_name;
     private String access_key;
     private String platform;
-    private String app;
+    private String [] app;
+
 
     public String getUserName(){
         return user_name;
@@ -19,8 +20,7 @@ public class JSON {
         return platform;
     }
 
-    public String getApp(){
+    public String[] getApps() {
         return app;
     }
-
 }

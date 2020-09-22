@@ -29,7 +29,7 @@ public class AppiumController {
             caps.setCapability("project", "Android Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "Android");
-            caps.setCapability("app", Utils.pathToJSON().getApp());
+            caps.setCapability("app", Utils.pathToJSON().getApps()[0]);
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
         } else if (mobile.contains("iOS")){
@@ -40,7 +40,7 @@ public class AppiumController {
             caps.setCapability("project", "iOS Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "iOS");
-            caps.setCapability("app", "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d");
+            caps.setCapability("app", Utils.pathToJSON().getApps()[1]);
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
 
