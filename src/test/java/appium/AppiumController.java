@@ -30,9 +30,10 @@ public class AppiumController {
             caps.setCapability("project", "Android Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "Android");
-            caps.setCapability("app", Utils.pathToJSON().getApp());
+            caps.setCapability("app", Utils.pathToJSON().getApp().toString());
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
+
         } else if (mobile.contains("iOS")){
 
             DesiredCapabilities caps = new DesiredCapabilities();

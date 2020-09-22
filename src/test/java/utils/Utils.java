@@ -11,11 +11,10 @@ import java.lang.reflect.Type;
 
 public class Utils {
 
-    String path = "src/test/java/jsons/data.json";
-
     public static JSON pathToJSON() throws FileNotFoundException {
         Gson gson = new Gson();
-        return gson.fromJson(new FileReader("src/test/java/jsons/data.json"), JSON.class);
+        Type type = new TypeToken<JSON>(){}.getType();
+        return gson.fromJson(new FileReader(new File("src/test/java/jsons/data.json").getAbsolutePath()), type);
     }
 
 }
