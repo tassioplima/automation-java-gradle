@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumDriver;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import utils.Utils;
 
 public class AppiumController {
 
@@ -15,8 +16,6 @@ public class AppiumController {
     public static final String server = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static AppiumDriver driver;
-
-    String execPlatform = System.getProperty("execPlatform");
 
     String mobile = System.getProperty("MOBILE");
 
@@ -29,7 +28,7 @@ public class AppiumController {
             caps.setCapability("project", "Android Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "Android");
-            caps.setCapability("app", "bs://d6f4857a9bd749fc33fe02160c211fb1cea500bc");
+            caps.setCapability("app", Utils.pathToJSON().getApp());
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
         } else if (mobile.contains("iOS")){
