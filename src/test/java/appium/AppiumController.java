@@ -1,5 +1,6 @@
 package appium;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 
 import io.appium.java_client.AppiumDriver;
@@ -21,6 +22,8 @@ public class AppiumController {
 
     String mobile = System.getProperty("MOBILE");
 
+    String value = Utils.pathToJSON().getApp();
+
     public void startAppium() throws Exception {
 
         if (mobile.contains("ANDROID")){
@@ -30,10 +33,10 @@ public class AppiumController {
             caps.setCapability("project", "Android Project");
             caps.setCapability("build", "Automation");
             caps.setCapability("name", "Android");
-            caps.setCapability("app", Utils.pathToJSON().getApp().toString());
+            System.out.println(Utils.pathToJSON().getApp());
+            caps.setCapability("app", value);
 
             driver = new AppiumDriver<MobileElement>(new URL(server), caps);
-
         } else if (mobile.contains("iOS")){
 
             DesiredCapabilities caps = new DesiredCapabilities();
