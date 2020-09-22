@@ -27,7 +27,5 @@ jobs:
         access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle Android
+    - name: Build with Gradle
       run: ./gradlew test --tests "Tests" -DMOBILE=Android -DEXEC=REMOTE
-    - name: Build with Gradle iOS
-      run: ./gradlew test --tests "Tests" -DMOBILE=iOS -DEXEC=REMOTE
