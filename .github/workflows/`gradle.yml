@@ -22,7 +22,8 @@ jobs:
         java-version: 1.8
         
   test:
-    
+    needs: build
+    name: Test job 
     runs-on: ubuntu-latest
     steps:
     - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
