@@ -1,4 +1,5 @@
 # BrowserStack
+
 Automation with Java + Gradle on Browser Stack and Github Action doing remote mobile test
 
 ![Appium Execution](https://github.com/tassioplima/automation-java-gradle/workflows/Gradle/badge.svg)
