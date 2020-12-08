@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  environment:
 
     runs-on: ubuntu-latest
 
@@ -21,12 +21,6 @@ jobs:
       with:
         java-version: '9.0.4' # The JDK version to make available on the path.
         java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
-   
-    - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
-      uses: browserstack/github-actions/setup-env@master
-      with:
-        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
     
       
   tests:
@@ -34,6 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
+      uses: browserstack/github-actions/setup-env@master
+      with:
+        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
