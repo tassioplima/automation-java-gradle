@@ -26,6 +26,7 @@ jobs:
     name: Test job 
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/setup-java@v1
     - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
       uses: browserstack/github-actions/setup-env@master
       with:
