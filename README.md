@@ -1,6 +1,6 @@
 # BrowserStack
 
-Automation project with Java + Gradle on Browser Stack and Github Action as a CI doing remote mobile test.
+Automation project with Java + Gradle on Browser Stack and Github Action as a CI doing remote mobile test
 
 ![Appium Execution](https://github.com/tassioplima/automation-java-gradle/workflows/Gradle/badge.svg)
 
