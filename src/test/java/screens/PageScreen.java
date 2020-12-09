@@ -17,7 +17,7 @@ public class PageScreen {
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView")
+    @AndroidFindBy(className = "android.widget.ImageView")
     @iOSXCUITFindBy(accessibility = "Text Button")
     private MobileElement value;
 
