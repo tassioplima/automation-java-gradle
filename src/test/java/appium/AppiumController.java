@@ -11,8 +11,10 @@ import utils.iOSCapabilities;
 
 public class AppiumController {
 
+    String mobile = System.getProperty("MOBILE");
+
     public static final String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+    public static final String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY") ;
 
     public static String userName = Utils.pathToJSON().getUserName();
     public static String accessKey = Utils.pathToJSON().getAccessKey();
@@ -22,22 +24,21 @@ public class AppiumController {
 
     public static AppiumDriver driver;
 
-    String mobile = System.getProperty("MOBILE");
-    String exec = System.getProperty("EXEC");
 
     public void startAppium() throws Exception {
 
-        if (mobile.contains("ANDROID")){
+        System.out.println(userName + accessKey);
 
-            if (exec.contains("REMOTE")){
+        if (mobile.contains("iOS")){
+            if (Boolean.getBoolean("EXEC")){
                 driver = new AppiumDriver<MobileElement>(new URL(server), AndroidCapabilities.getAndroidCapabilities());
             } else {
                 driver = new AppiumDriver<MobileElement>(new URL(local), AndroidCapabilities.getAndroidCapabilities());
+
             }
 
-        } else if (mobile.contains("iOS")){
-
-            if (exec.contains("REMOTE")){
+        } else if (mobile.contains("ANDROID")){
+            if (Boolean.getBoolean("EXEC")){
                 driver = new AppiumDriver<MobileElement>(new URL(server), iOSCapabilities.getIOSCapabilities());
             } else {
                 driver = new AppiumDriver<MobileElement>(new URL(local), iOSCapabilities.getIOSCapabilities());

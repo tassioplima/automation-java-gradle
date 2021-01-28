@@ -2,8 +2,8 @@ package model;
 
 public class JSON {
 
-    private String user_name;
-    private String access_key;
+    private String name;
+    private String key;
     private String platform;
     private String [] apps;
     private String [] device;
@@ -11,11 +11,11 @@ public class JSON {
 
 
     public String getUserName(){
-        return user_name;
+        return name;
     }
 
     public String getAccessKey(){
-        return access_key;
+        return key;
     }
 
     public String getPlatform(){

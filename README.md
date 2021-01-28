@@ -32,13 +32,16 @@ iOS:
 ```
 ./gradlew test --tests "Tests" -DMOBILE=iOS
 ```
-For Remote or Local execution you can run this command line:
+For use local user name by json or remote you can use Exec true or false:
 
-
-```
-./gradlew test --tests "Tests" -DMOBILE=ANDROID -DEXEC=REMOTE
-```
+true = execution using environment variable from secret key
 
 ```
-./gradlew test --tests "Tests" -DMOBILE=ANDROID -DEXEC=LOCAL
+./gradlew test --tests "Tests" -DMOBILE=ANDROID -DEXEC=true
+```
+
+false = execution using json name and key from browser stack
+
+```
+./gradlew test --tests "Tests" -DMOBILE=ANDROID -DEXEC=false
 ```
