@@ -27,23 +27,19 @@ public class AppiumController {
 
     public void startAppium() throws Exception {
 
-        System.out.println(userName + accessKey);
-
-        if (mobile.contains("iOS")){
-            if (Boolean.getBoolean("EXEC")){
-                driver = new AppiumDriver<MobileElement>(new URL(server), AndroidCapabilities.getAndroidCapabilities());
-            } else {
-                driver = new AppiumDriver<MobileElement>(new URL(local), AndroidCapabilities.getAndroidCapabilities());
-
-            }
-
-        } else if (mobile.contains("ANDROID")){
+        if (mobile.contains("IOS")){
             if (Boolean.getBoolean("EXEC")){
                 driver = new AppiumDriver<MobileElement>(new URL(server), iOSCapabilities.getIOSCapabilities());
             } else {
                 driver = new AppiumDriver<MobileElement>(new URL(local), iOSCapabilities.getIOSCapabilities());
             }
 
+        } else if (mobile.contains("ANDROID")){
+            if (Boolean.getBoolean("EXEC")){
+                driver = new AppiumDriver<MobileElement>(new URL(server), AndroidCapabilities.getAndroidCapabilities());
+            } else {
+                driver = new AppiumDriver<MobileElement>(new URL(local), AndroidCapabilities.getAndroidCapabilities());
+            }
         }
 
     }

@@ -36,10 +36,7 @@ test {
         events "passed", "skipped", "failed"
     }
 
-    systemProperties = [
-            MOBILE: System.getProperty('MOBILE', 'ANDROID'),
-            MOBILE: System.getProperty('MOBILE', 'iOS'),
-            EXEC: System.getProperty('EXEC', "LOCAL"),
-            EXEC: System.getProperty('EXEC', "REMOTE")
-    ]
+    systemProperty "MOBILE", System.getProperty("MOBILE")
+    systemProperty "EXEC", Boolean.getBoolean("EXEC")
+
 }
