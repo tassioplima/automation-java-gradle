@@ -31,17 +31,17 @@ public class Commons {
 	public static PointOption point = new PointOption();
 
 	public static void longPress(int x, int y) {
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 		action.longPress(point.withCoordinates(x, y)).perform().release();
 	}
 
 	public static void tap(int x, int y) {
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 		action.tap(point(x, y)).release().perform();
 	}
 
 	public static void tapQts(int x, int y, int quantidade) {
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 		for (int i = 0; i <= quantidade; i++) {
 			action.tap(point(x, y)).release().perform();
 		}
@@ -51,7 +51,7 @@ public class Commons {
 		Map<String, Object> tap = new HashMap<>();
 		tap.put("x", x);
 		tap.put("y", y);
-		Hooks.driver.executeScript("mobile: tap", tap);
+	        driver.executeScript("mobile: tap", tap);
 	}
 
 	public static void tapiOSQts(String x, String y, int quantidade) {
@@ -59,40 +59,40 @@ public class Commons {
 			Map<String, Object> tap = new HashMap<>();
 			tap.put("x", x);
 			tap.put("y", y);
-			Hooks.driver.executeScript("mobile: tap", tap);
+			driver.executeScript("mobile: tap", tap);
 		}
 	}
 
 	public static void waitForVisibilityElement(MobileElement mobile) {
-		WebDriverWait wait = new WebDriverWait(Hooks.driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOf(mobile));
 	}
 	
 	public static void waitForVisibilityElement(MobileElement mobile, int time) {
-		WebDriverWait wait = new WebDriverWait(Hooks.driver, time);
+		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.visibilityOf(mobile));
 	}
 
 	public static void waitForInvisibilityElement(MobileElement mobile) {
-		WebDriverWait wait = new WebDriverWait(Hooks.driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.invisibilityOf(mobile));
 	}
 	
 	public static void waitForInvisibilityElement(MobileElement mobile, int time) {
-		WebDriverWait wait = new WebDriverWait(Hooks.driver, time);
+		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.invisibilityOf(mobile));
 	}
 
 	public static void swipeiOSEsquerda() {
 		Map<String, Object> tap = new HashMap<>();
 		tap.put("direction", "right");
-		Hooks.driver.executeScript("mobile: swipe", tap);
+		driver.executeScript("mobile: swipe", tap);
 	}
 
 	public static void swipeiOSDireita() {
 		Map<String, Object> tap = new HashMap<>();
 		tap.put("direction", "left");
-		Hooks.driver.executeScript("mobile: swipe", tap);
+		driver.executeScript("mobile: swipe", tap);
 	}
 
 	public static void longPressiOS(String x, String y, int tempo) {
@@ -100,7 +100,7 @@ public class Commons {
 		tap.put("x", x);
 		tap.put("y", y);
 		tap.put("duration", tempo);
-		Hooks.driver.executeScript("mobile: touchAndHold", tap);
+		driver.executeScript("mobile: touchAndHold", tap);
 	}
 
 	/**
@@ -110,8 +110,8 @@ public class Commons {
 	 * @param quantidade valor de quantidade execuções do swipe
 	 */
 	public static void swipeHorizontalQtd(double startP, double endP, double anchorP, int quantidade) {
-		Dimension size = Hooks.driver.manage().window().getSize();
-		TouchAction action = new TouchAction(Hooks.driver);
+		Dimension size = driver.manage().window().getSize();
+		TouchAction action = new TouchAction(driver);
 
 		int anchor = (int) (size.height * anchorP);
 		int startPoint = (int) (size.width * startP);
@@ -132,8 +132,8 @@ public class Commons {
 	 */
 	public static void swipeHorizontalPorPorcentagem(double startP, double endP, double anchorP) {
 		
-		TouchAction action = new TouchAction(Hooks.driver);
-		Dimension size = Hooks.driver.manage().window().getSize();
+		TouchAction action = new TouchAction(driver);
+		Dimension size = driver.manage().window().getSize();
 
 		int anchor = (int) (size.height * anchorP);
 		int startPoint = (int) (size.width * startP);
@@ -152,8 +152,8 @@ public class Commons {
 	 */
 	public static void swipeVerticalQtd(double startP, double endP, double anchorP, int quantidade) {
 		
-		TouchAction action = new TouchAction(Hooks.driver);
-		Dimension size = Hooks.driver.manage().window().getSize();
+		TouchAction action = new TouchAction(driver);
+		Dimension size = driver.manage().window().getSize();
 
 		int anchor = (int) (size.width * anchorP);
 		int startPoint = (int) (size.height * startP);
@@ -173,8 +173,8 @@ public class Commons {
 	 */
 	public static void swipeVerticalPorPorcentagem(double startP, double endP, double anchorP) {
 		
-		TouchAction action = new TouchAction(Hooks.driver);
-		Dimension size = Hooks.driver.manage().window().getSize();
+		TouchAction action = new TouchAction(driver);
+		Dimension size = driver.manage().window().getSize();
 
 		int anchor = (int) (size.width * anchorP);
 		int startPoint = (int) (size.height * startP);
@@ -189,20 +189,20 @@ public class Commons {
 	 * Esconde o Keyboard
 	 */
 	public static void hideKeyboard() {
-		Hooks.driver.hideKeyboard();
+		driver.hideKeyboard();
 	}
 
 	public static void scroll(double inicio, double fim) throws InterruptedException {
 		Thread.sleep(2000);
 
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 
 		int x = size.width / 2;
 		int start_y = (int) (size.height * inicio);
 		int end_y = (int) (size.height * fim);
 
 		@SuppressWarnings("rawtypes")
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 
 		WaitOptions waitOptions = new WaitOptions();
 		waitOptions.withDuration(Duration.ofMillis(500));
@@ -219,14 +219,14 @@ public class Commons {
 		long espera;
 		tempoInicio = System.currentTimeMillis();
 
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 
 		int x = size.width / 2;
 		int start_y = (int) (size.height * inicio);
 		int end_y = (int) (size.height * fim);
 
 		@SuppressWarnings("rawtypes")
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 
 		WaitOptions waitOptions = new WaitOptions();
 		waitOptions.withDuration(Duration.ofMillis(500));
@@ -293,7 +293,7 @@ public class Commons {
 		long espera;
 		tempoInicio = System.currentTimeMillis();
 		while (!elementoEncontrado && elementoExistente) {
-			new TouchAction(Hooks.driver).press(PointOption.point(p1_x, p1_y))
+			new TouchAction(driver).press(PointOption.point(p1_x, p1_y))
 					.waitAction(WaitOptions.waitOptions(Duration.ofMillis(tempoEspera)))
 					.moveTo(PointOption.point(p2_x, p2_y)).release().perform();
 
@@ -317,7 +317,7 @@ public class Commons {
 
 	public static void swipeParaDireita() throws InterruptedException {
 
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 
 		int y = size.height / 2;
 		int start_x = (int) (size.width * 0.9);
@@ -337,14 +337,14 @@ public class Commons {
 
 	public static void swipeParaEsquerda() throws InterruptedException {
 
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 
 		int y = size.height / 2;
 		int start_x = (int) (size.width * 0.1);
 		int end_x = (int) (size.width * 0.9);
 
 		@SuppressWarnings("rawtypes")
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 
 		WaitOptions waitOptions = new WaitOptions();
 		waitOptions.withDuration(Duration.ofMillis(500));
@@ -375,37 +375,10 @@ public class Commons {
 		}
 	}
 	
-	public static void swipeHorizontalTESTE(int startPX, int y) {
-		
-		TouchAction action = new TouchAction(Hooks.driver);
-		Dimension size = Hooks.driver.manage().window().getSize();
-		
-//		int anchor = (int) (size.height - startPX);
-		int startP = (int) (size.width - startPX);
-		int endP = startP - 300 - startPX;
-
-		action.press(point(startP, y)).waitAction(waitOptions(ofMillis(500))).moveTo(point(endP, y))
-				.release().perform();
-
-	}
 	
-	public static void swipeVerticalTESTE() {
-		
-		@SuppressWarnings("rawtypes")
-		TouchAction action = new TouchAction(Hooks.driver);
-		Dimension size = Hooks.driver.manage().window().getSize();
-		
-		int anchor = (int) (size.width/2);
-		int startP = (int) (size.height - 400);
-		int endP = size.height - startP;
-
-		action.press(point(anchor, startP)).waitAction(waitOptions(ofMillis(500))).moveTo(point(anchor, endP))
-				.release().perform();
-
-	}
 	
 	public static void swipeHorizontalIOSTeste(MobileElement element) {
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 		
 		int xElement = element.getLocation().getX();
 		int yElement = element.getLocation().getY();
@@ -419,7 +392,7 @@ public class Commons {
 		tap.put("toX", endP);
 		tap.put("toY", yElement);
 		tap.put("element", element.getId());
-		Hooks.driver.executeScript("mobile: dragFromToForDuration", tap);
+		driver.executeScript("mobile: dragFromToForDuration", tap);
 	}
 	
 	public static void swipeVerticalIOSTeste(MobileElement element, boolean swipeDown) {
@@ -428,7 +401,7 @@ public class Commons {
 		tap.put("duration", 1.0);
 		tap.put("direction", direction);
 		tap.put("element", element.getId());
-		Hooks.driver.executeScript("mobile: swipe", tap);
+		driver.executeScript("mobile: swipe", tap);
 	}
 	
 	public static void swipeVerticalIOSTeste2(boolean swipeDown) {
@@ -436,12 +409,12 @@ public class Commons {
 		Map<String, Object> tap = new HashMap<>();
 		tap.put("duration", 1.0);
 		tap.put("direction", direction);
-		Hooks.driver.executeScript("mobile: swipe", tap);
+		driver.executeScript("mobile: swipe", tap);
 	}
 	
 	public static void waitToBeClicableCustom(MobileElement mobile, int time){
 		
-		WebDriverWait wait = new WebDriverWait(Hooks.driver, time);
+		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.elementToBeClickable(mobile));
 	}
 	
@@ -456,7 +429,7 @@ public class Commons {
 	
 	public static boolean isDisplayedBoolean(By xpath) {
 		
-		MobileElement element = Hooks.driver.findElement(xpath);
+		MobileElement element = driver.findElement(xpath);
 		
 		try {
 			element.isDisplayed();
@@ -489,9 +462,9 @@ public class Commons {
 		long tempoInicio =  System.currentTimeMillis();
 		long tempoMaximoTentativaParaEncontrarElemento;
 		
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 		
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 		int width = size.width;
 		int height = size.height;
 		
@@ -540,9 +513,9 @@ public class Commons {
 		long tempoInicio =  System.currentTimeMillis();
 		long tempoMaximoTentativaParaEncontrarElemento;
 		
-		TouchAction action = new TouchAction(Hooks.driver);
+		TouchAction action = new TouchAction(driver);
 		
-		Dimension size = Hooks.driver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 		int width = size.width;
 		int height = size.height;
 		
@@ -557,16 +530,16 @@ public class Commons {
 			try {
 				switch (locator) {
 				case "xpath":
-					Commons.waitForVisibilityElement(Hooks.driver.findElement(By.xpath(value)), 5);
+					Commons.waitForVisibilityElement(driver.findElement(By.xpath(value)), 5);
 					break;
 				case "id":
-					Commons.waitForVisibilityElement(Hooks.driver.findElement(By.id(value)), 5);
+					Commons.waitForVisibilityElement(driver.findElement(By.id(value)), 5);
 					break;
 				case "accessibility":
-					Commons.waitForVisibilityElement(Hooks.driver.findElement(MobileBy.AccessibilityId(value)), 5);
+					Commons.waitForVisibilityElement(driver.findElement(MobileBy.AccessibilityId(value)), 5);
 					break;
 				case "iOSNsPredicate":
-						Commons.waitForVisibilityElement(Hooks.driver.findElement(MobileBy.iOSNsPredicateString(value)), 5);
+						Commons.waitForVisibilityElement(driver.findElement(MobileBy.iOSNsPredicateString(value)), 5);
 					break;
 					
 				default:
@@ -621,7 +594,7 @@ public class Commons {
 				if(!elementoAnterior.getText().contains(textoDesejado)) {
 					if(direcao.equals("direita")) {
 						
-						 action =new TouchAction(Hooks.driver);
+						 action =new TouchAction(driver);
 						action.press(PointOption.point(fromXLocation, midOfY))
 						.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
 						.moveTo(PointOption.point(toXLocation, midOfY))
